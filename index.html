@@ -1,9 +1,13 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>unit_conversion</title>
+
+  <!-- Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Description" content="unit_conversion">
+  <meta name="Description" content="Author: Eric S.">
 
   <!-- Style -->
   <link rel="stylesheet" type="text/css" href="style/style.css">
@@ -45,7 +49,7 @@
 
   <h1>unit_conversion</h1>
 
-  <select id="grpSelect" onchange="grpSwitch()">
+  <select name="unit_selection" id="grpSelect" onchange="grpSwitch()">
     <option value="grpTime">Time</option>
     <option value="grpLength">Length</option>
     <option value="grpTemperature">Temperature</option>
@@ -212,12 +216,12 @@
       <option value="uMpm">mpm</option>
       <option value="uMps">mps</option>
     </select>
-    to <select id="spdto" onchange="convUnits('spd')"></select>
-    <option value="uMs">m/s</option>
-    <option SELECTED value="uKmh">km/h</option>
-    <option value="uMph">mph</option>
-    <option value="uMpm">mpm</option>
-    <option value="uMps">mps</option>
+    to <select id="spdto" onchange="convUnits('spd')">
+      <option value="uMs">m/s</option>
+      <option SELECTED value="uKmh">km/h</option>
+      <option value="uMph">mph</option>
+      <option value="uMpm">mpm</option>
+      <option value="uMps">mps</option>
     </select>
     <input class="buttonConvert" id="spdBtn" type="button" value="convert" onclick="convUnits('spd');">
   </div>
