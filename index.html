@@ -49,7 +49,8 @@
 
   <h1>unit_conversion</h1>
 
-  <select name="unit_selection" id="grpSelect" onchange="grpSwitch()">
+  <label for="grpSelect">Choose a unit</label>
+  <select  id="grpSelect" onchange="grpSwitch()">
     <option value="grpTime">Time</option>
     <option value="grpLength">Length</option>
     <option value="grpTemperature">Temperature</option>
@@ -226,9 +227,9 @@
     <input class="buttonConvert" id="spdBtn" type="button" value="convert" onclick="convUnits('spd');">
   </div>
 
-  <div id="result" style="display:none;">
+  <div id="result_1" style="display:none;">
     <h3>Result:</h3>
-    <div id="result">&nbsp;</div>
+    <div id="result_2">&nbsp;</div>
 
     <br>
     <br>
