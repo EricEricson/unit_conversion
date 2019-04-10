@@ -21,7 +21,7 @@ function addCommas(nStr) {
 
 function convUnits(c) {
   amt = document.getElementById(c+ "amt").value;
-  var result = document.getElementById("result");
+  var result = document.getElementById("result_1");
 
   frUnit = window[c + "fr"].value;
   frVal = units[frUnit];
@@ -72,7 +72,7 @@ function convTmp() {
   if (frUnit == "uDegn" && toUnit == "uDegk") { var res = parseInt(amt) * (100/33) + 273.15; res2 = (parseInt(amt) - 273.15)/(100/33) }
   if (frUnit == "uDegn" && toUnit == "uDegn") { var res = parseInt(amt); var res2 = parseInt(amt) }
 
-  var result = document.getElementById("result");
+  var result = document.getElementById("result_2");
   result.style.display = "";
   result.innerHTML = amt + " " + frAbbrev + " = " + res.toFixed(1) + " " + toAbbrev + " <br>" + amt + " " + toAbbrev + " = " + res2.toFixed(1) + " " + frAbbrev;
   return true;
