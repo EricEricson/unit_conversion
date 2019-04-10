@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>unit_conversion</title>
@@ -50,7 +51,7 @@
   <h1>unit_conversion</h1>
 
   <label for="grpSelect">Choose a unit</label>
-  <select  id="grpSelect" onchange="grpSwitch()">
+  <select id="grpSelect" onchange="grpSwitch()">
     <option value="grpTime">Time</option>
     <option value="grpLength">Length</option>
     <option value="grpTemperature">Temperature</option>
@@ -113,7 +114,7 @@
 
   <div id="grpTemperature" style="display:none;">
     <h3>Temperature</h3>
-    <input type="number" value="1" id="tmpamt" onkeyup="convTmp()">
+    <input type="number" value="1" id="tmpamt" onkeyup="convTmp();">
     from <select id="tmpfr" onchange="convTmp()">
       <option value="uDegc">°C</option>
       <option SELECTED value="uDegf">°F</option>
@@ -227,9 +228,9 @@
     <input class="buttonConvert" id="spdBtn" type="button" value="convert" onclick="convUnits('spd');">
   </div>
 
-  <div id="result_1" style="display:none;">
+  <div id="result" style="display:none;">
     <h3>Result:</h3>
-    <div id="result_2">&nbsp;</div>
+    <div id="result">&nbsp;</div>
 
     <br>
     <br>
@@ -252,6 +253,47 @@
       app.isLoading = false;
     }
   })();
+
+  // New Version available
+  window.isUpdateAvailable = new Promise(function (resolve, reject) {
+    // lazy way of disabling service workers while developing
+    if ('serviceWorker' in navigator && ['localhost', '127'].indexOf(location.hostname) === -1) {
+      // register service worker file
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => {
+          reg.onupdatefound = () => {
+            const installingWorker = reg.installing;
+            installingWorker.onstatechange = () => {
+              switch (installingWorker.state) {
+                case 'installed':
+                  if (navigator.serviceWorker.controller) {
+                    // new update available
+                    resolve(true);
+                  } else {
+                    // no update available
+                    resolve(false);
+                  }
+                  break;
+              }
+            };
+          };
+        })
+        .catch(err => console.error('[SW ERROR]', err));
+    }
+  });
+
+  window['isUpdateAvailable']
+	.then(isAvailable => {
+		if (isAvailable) {
+			const toast = this.toastCtrl.create({
+				message: 'New Update available! Reload the webapp to see the latest juicy changes.',
+				position: 'bottom',
+				showCloseButton: true,
+			});
+			toast.present();
+		}
+	});
+
 </script>
 
 </html>
