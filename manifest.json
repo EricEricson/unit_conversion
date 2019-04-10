@@ -1,26 +1,25 @@
 {
-    "name": "unit_conversion",
-    "short_name": "unit_conversion",
-    "icons": [{
-        "src": "style/favicon.png",
-        "sizes": "96x96",
-        "type": "image/png"
-      }, {
-        "src": "style/unit_conversion.png",
-        "sizes": "144x144",
-        "type": "image/png"
-      }, {
-        "src": "style/unit_conversion.png",
-        "sizes": "256x256",
-        "type": "image/png"
-      }, {
-        "src": "style/unit_conversion.png",
-        "sizes": "512x512",
-        "type": "image/png"
-      }],
-    "start_url": "/index.html",
-    "display": "standalone",
-    "background_color": "#f4f5f627",
-    "theme_color": "#606c76"
-  }
-  
+  "name": "unit_conversion",
+  "short_name": "unit_conversion",
+  "icons": [{
+    "src": "style/favicon.png",
+    "sizes": "96x96",
+    "type": "image/png"
+  }, {
+    "src": "style/unit_conversion.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }, {
+    "src": "style/unit_conversion.png",
+    "sizes": "256x256",
+    "type": "image/png"
+  }, {
+    "src": "style/unit_conversion.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f4f5f627",
+  "theme_color": "#606c76"
+}
