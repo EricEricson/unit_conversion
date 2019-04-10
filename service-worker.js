@@ -1,3 +1,4 @@
+// Files to Cache 
 var dataCacheName = 'unit_conversion';
 var cacheName = 'unit_conversion';
 var filesToCache = [
@@ -12,6 +13,8 @@ var filesToCache = [
   '/style/style.css',
 ];
 
+
+// Install ServiceWorker
 self.addEventListener('install', function(e) {
   console.log('[ServiceWorker] Install');
   e.waitUntil(
@@ -22,6 +25,7 @@ self.addEventListener('install', function(e) {
   );
 });
 
+// Activate Service Worker
 self.addEventListener('activate', function(e) {
   console.log('[ServiceWorker] Activate');
   e.waitUntil(
@@ -37,6 +41,7 @@ self.addEventListener('activate', function(e) {
   return self.clients.claim();
 });
 
+// Fetch Data
 self.addEventListener('fetch', function(e) {
   console.log('[Service Worker] Fetch', e.request.url);
   var dataUrl = 'https://query.yahooapis.com/v1/public/yql';
@@ -57,3 +62,5 @@ self.addEventListener('fetch', function(e) {
     );
   }
 });
+
+// New Version Update Message
